@@ -16,11 +16,6 @@ import java.util.List;
  */
 public interface AddressService extends IService<Address> {
 
-    void addAddress(AddressAddRequest request);
-
-    void editAddress(AddressUpdateRequest request);
-
-    void deleteAddress(AddressDeleteRequest request);
-
     List<AddressListVO> queryAddress(AddressQueryRequest request);
+
 }

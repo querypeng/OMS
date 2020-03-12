@@ -24,6 +24,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author shisen
  */
+@SuppressWarnings("all")
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -35,15 +36,31 @@ public class SwaggerConfig {
 
 	public SwaggerConfig(Environment environment) {this.environment = environment;}
 
-	@SuppressWarnings("all")
 	@Bean
-	public Docket swaggerDocketUser() {
-		Predicate<String> userPredicate = PathSelectors.ant("/micro/**");
-		return createSwaggerGroup("MicroAppApi", userPredicate);
+	public Docket swaggerDocketAddress() {
+		Predicate<String> addressPredicate = PathSelectors.ant("/micro/address/**");
+		return createSwaggerGroup("地址相关", addressPredicate);
+	}
+
+	@Bean
+	public Docket swaggerDocketOrder() {
+		Predicate<String> orderPredicate = PathSelectors.ant("/micro/order/**");
+		return createSwaggerGroup("订单相关", orderPredicate);
+	}
+
+	@Bean
+	public Docket swaggerDocketGoods() {
+		Predicate<String> goodsPredicate = PathSelectors.ant("/micro/goods/**");
+		return createSwaggerGroup("商品相关", goodsPredicate);
+	}
+
+	@Bean
+	public Docket swaggerDocketgoodCar() {
+		Predicate<String> goodCarPredicate = PathSelectors.ant("/micro/goodCar/**");
+		return createSwaggerGroup("购物车相关", goodCarPredicate);
 	}
 
 
-	@SuppressWarnings("all")
 	private Docket createSwaggerGroup(@NotNull String groupName, Predicate... predicates) {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.enable(enableSwagger())

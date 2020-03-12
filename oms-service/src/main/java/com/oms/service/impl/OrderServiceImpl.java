@@ -6,6 +6,7 @@ import com.oms.api.response.GoodsCarVO;
 import com.oms.dao.OrderMapper;
 import com.oms.dao.entity.Order;
 import com.oms.service.OrderService;
+import com.oms.shared.beans.WrapperBeanCopier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,14 +19,8 @@ import java.util.List;
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
 
-    @Resource
-    private OrderMapper orderMapper;
-
     @Override
     public List<GoodsCarVO> queryGoodsCar(GoodsCarQueryRequest request) {
-
-        List<GoodsCarVO> goodsCarVOList = orderMapper.queryGoodsCar(request.getOpenId());
-
-        return null;
+        return this.getBaseMapper().queryGoodsCar(request.getOpenId());
     }
 }

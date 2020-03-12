@@ -3,6 +3,7 @@ package com.oms.api;
 
 import com.oms.api.request.*;
 import com.oms.api.response.AddressListVO;
+import com.oms.api.response.GoodsCarVO;
 import com.oms.api.response.GoodsVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -65,18 +66,18 @@ public interface MicroAppApi {
      *
      * @return
      */
-    @PostMapping(value = "/query/goods")
+    @PostMapping(value = "/goods/query")
     @ApiOperation("查询商品列表")
     ResponseEntity<List<GoodsVO>> queryGoods();
 
     /**
      * 查看购物车
-     *
+     * @param request
      * @return
      */
-    @PostMapping(value = "/query/goods")
+    @PostMapping(value = "/goodCar/query")
     @ApiOperation("查看购物车")
-    ResponseEntity queryGoodsCar(GoodsCarQueryRequest request);
+    ResponseEntity<List<GoodsCarVO>> queryGoodsCar(GoodsCarQueryRequest request);
 
 
 }

@@ -19,14 +19,8 @@ import java.util.List;
 @Service
 public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements GoodsService {
 
-
-    @Resource
-    private GoodsMapper goodsMapper;
-
-
     @Override
     public List<GoodsVO> queryGoods() {
-        List<Goods> goodsList = ChainWrappers.lambdaQueryChain(goodsMapper).list();
-        return WrapperBeanCopier.convert(goodsList, GoodsVO.class);
+        return WrapperBeanCopier.convert(this.list(), GoodsVO.class);
     }
 }
