@@ -2,8 +2,13 @@ package com.oms.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.oms.api.request.AddressAddRequest;
+import com.oms.api.request.AddressDeleteRequest;
+import com.oms.api.request.AddressQueryRequest;
 import com.oms.api.request.AddressUpdateRequest;
+import com.oms.api.response.AddressListVO;
 import com.oms.dao.domain.Address;
+
+import java.util.List;
 
 /**
  * @author pengfeng
@@ -14,4 +19,8 @@ public interface AddressService extends IService<Address> {
     void addAddress(AddressAddRequest request);
 
     void editAddress(AddressUpdateRequest request);
+
+    void deleteAddress(AddressDeleteRequest request);
+
+    List<AddressListVO> queryAddress(AddressQueryRequest request);
 }
