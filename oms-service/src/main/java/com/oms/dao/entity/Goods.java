@@ -1,4 +1,4 @@
-package com.oms.dao.domain;
+package com.oms.dao.entity;
 
 import lombok.Data;
 
@@ -38,7 +38,7 @@ public class Goods {
     /**
      * 图3
      */
-    private byte[] pictrue3;
+    private byte[] picture3;
 
 
 }

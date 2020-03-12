@@ -1,4 +1,4 @@
-package com.oms.dao.domain;
+package com.oms.dao.entity;
 
 
 import lombok.Data;
@@ -36,7 +36,7 @@ public class Order {
     /**
      * 创建时间
      */
-    private Date creatTime;
+    private Date createdTime;
 
     /**
      * openId

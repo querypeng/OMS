@@ -1,7 +1,7 @@
 package com.oms.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.oms.dao.domain.Address;
+import com.oms.dao.entity.Address;
 
 /**
  * @author pengfeng

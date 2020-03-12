@@ -9,13 +9,13 @@ import com.oms.api.request.AddressQueryRequest;
 import com.oms.api.request.AddressUpdateRequest;
 import com.oms.api.response.AddressListVO;
 import com.oms.dao.AddressMapper;
-import com.oms.dao.domain.Address;
+import com.oms.dao.entity.Address;
 import com.oms.service.AddressService;
+import com.oms.shared.beans.WrapperBeanCopier;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.sql.Wrapper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,21 +31,13 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
 
     @Override
     public void addAddress(AddressAddRequest request) {
-        Address address = new Address();
-        address.setAddress(request.getAddress());
-        address.setMoblie(request.getMobile());
-        address.setName(request.getName());
-        address.setOpenId(request.getOpenId());
+        Address address = WrapperBeanCopier.convert(request, Address.class);
         addressMapper.insert(address);
     }
 
     @Override
     public void editAddress(AddressUpdateRequest request) {
-        Address address = new Address();
-        address.setAddress(request.getAddress());
-        address.setMoblie(request.getMobile());
-        address.setName(request.getName());
-        address.setId(request.getId());
+        Address address = WrapperBeanCopier.convert(request, Address.class);
         addressMapper.updateById(address);
     }
 

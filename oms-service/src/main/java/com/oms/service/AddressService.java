@@ -6,7 +6,7 @@ import com.oms.api.request.AddressDeleteRequest;
 import com.oms.api.request.AddressQueryRequest;
 import com.oms.api.request.AddressUpdateRequest;
 import com.oms.api.response.AddressListVO;
-import com.oms.dao.domain.Address;
+import com.oms.dao.entity.Address;
 
 import java.util.List;
 

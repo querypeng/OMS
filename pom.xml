@@ -28,6 +28,8 @@
         <swagger.models.version>1.5.22</swagger.models.version>
         <fastjson.version>1.2.51</fastjson.version>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <cglib.version>3.3.0</cglib.version>
+        <typetools.version>0.6.2</typetools.version>
     </properties>
 
     <dependencyManagement>
@@ -38,6 +40,17 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.jodah</groupId>
+                <artifactId>typetools</artifactId>
+                <version>${typetools.version}</version>
             </dependency>
 
             <dependency>

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Configuration
@@ -34,7 +35,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 //Number null -> 0
                 SerializerFeature.WriteDateUseDateFormat);
         converter.setFastJsonConfig(config);
-        converter.setDefaultCharset(Charset.forName("UTF-8"));
+        converter.setDefaultCharset(StandardCharsets.UTF_8);
         objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         converters.add(converter);
     }

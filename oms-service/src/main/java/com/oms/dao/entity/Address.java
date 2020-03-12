@@ -1,4 +1,4 @@
-package com.oms.dao.domain;
+package com.oms.dao.entity;
 
 import lombok.Data;
 
@@ -18,7 +18,7 @@ public class Address {
     /**
      * 手机号
      */
-    private String moblie;
+    private String mobile;
 
     /**
      * 详细地址
