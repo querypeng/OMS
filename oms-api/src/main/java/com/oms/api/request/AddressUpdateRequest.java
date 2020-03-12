@@ -2,17 +2,17 @@ package com.oms.api.request;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
  * @author pengfeng
- * @date 2020-03-12 13:36
+ * @date 2020-03-12 15:47
  */
 @Data
-public class AddAddressRequest {
+public class AddressUpdateRequest {
 
     @NotBlank(message = "姓名不能为空")
     @Length(max = 30, message = "姓名不超过30个字符")
@@ -25,6 +25,6 @@ public class AddAddressRequest {
     @NotBlank(message = "地址不能为空")
     private String address;
 
-    @NotBlank(message = "openId不能为空")
-    private String openId;
+    @NotNull(message = "id不能为空")
+    private Long id;
 }

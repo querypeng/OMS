@@ -1,7 +1,8 @@
 package com.oms.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.oms.api.request.AddAddressRequest;
+import com.oms.api.request.AddressAddRequest;
+import com.oms.api.request.AddressUpdateRequest;
 import com.oms.dao.domain.Address;
 
 /**
@@ -10,5 +11,7 @@ import com.oms.dao.domain.Address;
  */
 public interface AddressService extends IService<Address> {
 
-    void addAddress(AddAddressRequest request);
+    void addAddress(AddressAddRequest request);
+
+    void editAddress(AddressUpdateRequest request);
 }

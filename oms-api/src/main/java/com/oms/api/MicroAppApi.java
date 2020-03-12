@@ -1,9 +1,9 @@
 package com.oms.api;
 
 
-import com.oms.api.request.AddAddressRequest;
+import com.oms.api.request.AddressAddRequest;
+import com.oms.api.request.AddressUpdateRequest;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +23,25 @@ public interface MicroAppApi {
      * @return
      */
     @PostMapping(value = "/add/address")
-    @ApiOperation("获取用户信息")
-    ResponseEntity addAddress(AddAddressRequest request);
+    ResponseEntity addAddress(AddressAddRequest request);
+
+    /**
+     * 编辑地址
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping(value = "/update/address")
+    ResponseEntity editAddress(AddressUpdateRequest request);
+
+    /**
+     * 删除地址
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping(value = "/delete/address")
+    ResponseEntity deleteAddress(AddressUpdateRequest request);
 
 
 }
