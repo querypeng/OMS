@@ -12,6 +12,13 @@ public class ExceptionResponse {
     public ExceptionResponse(Integer code, Object exceptionDetail) {
         this.code = code;
         this.message = exceptionDetail;
+        this.data = null;
+    }
+
+    public ExceptionResponse(Integer code, Object message, Object data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
     }
 
     @Override

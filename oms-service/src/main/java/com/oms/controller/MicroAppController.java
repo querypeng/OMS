@@ -4,6 +4,7 @@ package com.oms.controller;
 import com.oms.api.MicroAppApi;
 import com.oms.api.request.AddAddressRequest;
 import com.oms.service.AddressService;
+import com.oms.shared.exception.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -25,8 +26,8 @@ public class MicroAppController implements MicroAppApi {
     private AddressService addressService;
 
     @Override
-    public ResponseEntity<Void> addAddress(@Validated @RequestBody AddAddressRequest request) {
+    public ResponseEntity<ExceptionResponse> addAddress(@Validated @RequestBody AddAddressRequest request) {
         addressService.addAddress(request);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(new ExceptionResponse(200, "success"), HttpStatus.CREATED);
     }
 }
