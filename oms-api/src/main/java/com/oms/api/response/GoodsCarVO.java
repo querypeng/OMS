@@ -23,11 +23,11 @@ public class GoodsCarVO {
      */
     private BigDecimal price;
 
-    private String pictrue1;
+    private String picture1;
 
-    private String pictrue2;
+    private String picture2;
 
-    private String pictrue3;
+    private String picture3;
 
     /**
      * 副标题

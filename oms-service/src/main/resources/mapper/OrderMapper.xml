@@ -16,19 +16,19 @@
     </resultMap>
 
     <select id="queryGoodsCar" resultType="com.oms.api.response.GoodsCarVO">
-            select o.order_no as orderNo,
-               o.remark,
-               o.price      as carPrice,
-               o.quantity,
-               o.creat_time as creatTime,
-               g.goods_name as goodsName,
-               g.price,
-               g.title,
-               g.pictrue3,
-               g.picture2,
-               g.picture1
-            from `order` o
-                left join goods g on g.id = o.goods_id
-                where o.open_id = #{openId};
+        SELECT `o`.`order_no`,
+               `o`.`remark`,
+               `o`.`price`,
+               `o`.`quantity`,
+               `o`.`created_time`,
+               `g`.`goods_name`,
+               `g`.`price`,
+               `g`.`title`,
+               `g`.`picture1`,
+               `g`.`picture2`,
+               `g`.`picture3`
+        FROM `order` `o`
+                 LEFT JOIN `goods` `g` ON `g`.`id` = `o`.`goods_id`
+        WHERE `o`.`open_id` = #{openId};
     </select>
 </mapper>

@@ -21,6 +21,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     @Override
     public List<GoodsCarVO> queryGoodsCar(GoodsCarQueryRequest request) {
+
+
         return this.getBaseMapper().queryGoodsCar(request.getOpenId());
     }
 }
