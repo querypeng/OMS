@@ -1,7 +1,7 @@
 package com.oms.dao;
 
-import com.oms.config.MyMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.oms.dao.domain.Order;
 
-public interface OrderMapper extends MyMapper<Order> {
+public interface OrderMapper extends BaseMapper<Order> {
 }

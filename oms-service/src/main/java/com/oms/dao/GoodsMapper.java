@@ -1,10 +1,10 @@
 package com.oms.dao;
 
-import com.oms.config.MyMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.oms.dao.domain.Goods;
 
 /**
  * @author pengfeng
  */
-public interface GoodsMapper extends MyMapper<Goods> {
+public interface GoodsMapper extends BaseMapper<Goods> {
 }

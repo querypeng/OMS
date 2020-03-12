@@ -1,10 +1,10 @@
 package com.oms.dao;
 
-import com.oms.config.MyMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.oms.dao.domain.Address;
 
 /**
  * @author pengfeng
  */
-public interface AddressMapper extends MyMapper<Address> {
+public interface AddressMapper extends BaseMapper<Address> {
 }

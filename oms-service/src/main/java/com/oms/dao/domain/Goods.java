@@ -2,22 +2,17 @@ package com.oms.dao.domain;
 
 import lombok.Data;
 
-import javax.persistence.*;
 
 @Data
-@Table(name = "goods")
 public class Goods {
     /**
      * 主键Id
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
      * 商品名称
      */
-    @Column(name = "goods_name")
     private String goodsName;
 
     /**
