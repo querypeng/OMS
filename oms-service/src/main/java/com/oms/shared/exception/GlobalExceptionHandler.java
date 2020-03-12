@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({BindException.class, MethodArgumentNotValidException.class})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    protected ExceptionResponse handleMethodArgumentNotValidException(HttpServletRequest request, Exception exception) {
+    protected Response handleMethodArgumentNotValidException(HttpServletRequest request, Exception exception) {
 
         // 异常信息
         List<ObjectError> allErrors;
@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
             err.append(";");
         }
 
-        return new ExceptionResponse(BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getCode(), err);
+        return new Response(BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getCode(), err);
     }
 
     /**
@@ -53,10 +53,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({SQLException.class})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    protected ExceptionResponse handleSQLExceptionHandler(HttpServletRequest request, SQLException exception) {
+    protected Response handleSQLExceptionHandler(HttpServletRequest request, SQLException exception) {
         String message = exception.getMessage();
         ;
-        return new ExceptionResponse(BaseErrorCode.SQL_EXCEPTION.getCode(), BaseErrorCode.SQL_EXCEPTION.getMessage());
+        return new Response(BaseErrorCode.SQL_EXCEPTION.getCode(), BaseErrorCode.SQL_EXCEPTION.getMessage());
     }
 
 
@@ -66,9 +66,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({IllegalArgumentException.class})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    protected ExceptionResponse handleIllegalArgumentException(HttpServletRequest request, IllegalArgumentException exception) {
+    protected Response handleIllegalArgumentException(HttpServletRequest request, IllegalArgumentException exception) {
         String message = exception.getMessage();
-        return new ExceptionResponse(BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getCode(), BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getMessage());
+        return new Response(BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getCode(), BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getMessage());
     }
 
     /**
@@ -77,9 +77,9 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({InvalidFormatException.class})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    protected ExceptionResponse handleInvalidFormatException(HttpServletRequest request, InvalidFormatException exception) {
+    protected Response handleInvalidFormatException(HttpServletRequest request, InvalidFormatException exception) {
         String message = exception.getMessage();
-        return new ExceptionResponse(BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getCode(), BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getMessage());
+        return new Response(BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getCode(), BaseErrorCode.ILLEGAL_ARGUMENT_EXCEPTION.getMessage());
     }
 
     /**
@@ -88,8 +88,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({BusinessException.class})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    protected ExceptionResponse handleBusinessException(HttpServletRequest request, BusinessException exception) {
-        return new ExceptionResponse(exception.getCode(), exception.getMessage());
+    protected Response handleBusinessException(HttpServletRequest request, BusinessException exception) {
+        return new Response(exception.getCode(), exception.getMessage());
     }
 
     /**
@@ -98,16 +98,16 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({Exception.class})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.OK)
-    protected ExceptionResponse handleOtherException(HttpServletRequest request, Exception exception) {
+    protected Response handleOtherException(HttpServletRequest request, Exception exception) {
         String message = exception.getMessage();
         if (exception instanceof HttpMessageNotReadableException) {
-            return new ExceptionResponse(BaseErrorCode.FORMAT_PARSE_EXCEPTION.getCode(), BaseErrorCode.FORMAT_PARSE_EXCEPTION.getMessage());
+            return new Response(BaseErrorCode.FORMAT_PARSE_EXCEPTION.getCode(), BaseErrorCode.FORMAT_PARSE_EXCEPTION.getMessage());
         } else if (exception instanceof HttpRequestMethodNotSupportedException) {
-            return new ExceptionResponse(BaseErrorCode.METHOD_NOT_SUPPORT_EXCEPTION.getCode(), BaseErrorCode.METHOD_NOT_SUPPORT_EXCEPTION.getMessage());
+            return new Response(BaseErrorCode.METHOD_NOT_SUPPORT_EXCEPTION.getCode(), BaseErrorCode.METHOD_NOT_SUPPORT_EXCEPTION.getMessage());
         } else if (exception instanceof NoHandlerFoundException) {
-            return new ExceptionResponse(BaseErrorCode.HANDLER_NOT_FOUND_EXCEPTION.getCode(), BaseErrorCode.HANDLER_NOT_FOUND_EXCEPTION.getMessage());
+            return new Response(BaseErrorCode.HANDLER_NOT_FOUND_EXCEPTION.getCode(), BaseErrorCode.HANDLER_NOT_FOUND_EXCEPTION.getMessage());
         } else {
-            return new ExceptionResponse(BaseErrorCode.EXCEPTION.getCode(), BaseErrorCode.EXCEPTION.getMessage());
+            return new Response(BaseErrorCode.EXCEPTION.getCode(), BaseErrorCode.EXCEPTION.getMessage());
         }
 
     }

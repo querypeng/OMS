@@ -1,16 +1,15 @@
 package com.oms.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.toolkit.ChainWrappers;
 import com.oms.api.response.GoodsVO;
 import com.oms.dao.GoodsMapper;
-import com.oms.dao.domain.Goods;
+import com.oms.dao.entity.Goods;
 import com.oms.service.GoodsService;
+import com.oms.shared.beans.WrapperBeanCopier;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,10 +26,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
 
     @Override
     public List<GoodsVO> queryGoods() {
-        List<Goods> goodsList = goodsMapper.selectList(null);
-        if (CollectionUtils.isEmpty(goodsList)) {
-            return new ArrayList<>();
-        }
-        return JSON.parseArray(JSON.toJSONString(goodsList), GoodsVO.class);
+        List<Goods> goodsList = ChainWrappers.lambdaQueryChain(goodsMapper).list();
+        return WrapperBeanCopier.convert(goodsList, GoodsVO.class);
     }
 }

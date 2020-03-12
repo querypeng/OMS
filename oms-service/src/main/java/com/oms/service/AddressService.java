@@ -16,11 +16,11 @@ import java.util.List;
  */
 public interface AddressService extends IService<Address> {
 
-    Boolean addAddress(AddressAddRequest request);
+    void addAddress(AddressAddRequest request);
 
-    Boolean editAddress(AddressUpdateRequest request);
+    void editAddress(AddressUpdateRequest request);
 
-    Boolean deleteAddress(AddressDeleteRequest request);
+    void deleteAddress(AddressDeleteRequest request);
 
     List<AddressListVO> queryAddress(AddressQueryRequest request);
 }

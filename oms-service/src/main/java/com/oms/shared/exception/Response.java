@@ -1,7 +1,7 @@
 package com.oms.shared.exception;
 
 
-public class ExceptionResponse {
+public class Response {
 
     private Integer code;
 
@@ -9,13 +9,13 @@ public class ExceptionResponse {
 
     private Object data;
 
-    public ExceptionResponse(Integer code, Object exceptionDetail) {
+    public Response(Integer code, Object exceptionDetail) {
         this.code = code;
         this.message = exceptionDetail;
         this.data = null;
     }
 
-    public ExceptionResponse(Integer code, Object message, Object data) {
+    public Response(Integer code, Object message, Object data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -23,7 +23,7 @@ public class ExceptionResponse {
 
     @Override
     public String toString() {
-        return "ExceptionResponse{" +
+        return "Response{" +
                 "code='" + code + '\'' +
                 ", message='" + message + '\'' +
                 '}';

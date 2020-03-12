@@ -15,4 +15,20 @@
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
     </resultMap>
 
+    <select id="queryGoodsCar" resultType="com.oms.api.response.GoodsCarVO">
+            select o.status,
+               o.remark,
+               o.price      as carPrice,
+               o.quantity,
+               o.creat_time as creatTime,
+               g.goods_name as goodsName,
+               g.price,
+               g.title,
+               g.pictrue3,
+               g.picture2,
+               g.picture1
+            from `order` o
+                left join goods g on g.id = o.goods_id
+                where o.open_id = #{openId};
+    </select>
 </mapper>

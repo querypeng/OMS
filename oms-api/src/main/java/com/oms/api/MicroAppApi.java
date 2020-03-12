@@ -1,11 +1,9 @@
 package com.oms.api;
 
 
-import com.oms.api.request.AddressAddRequest;
-import com.oms.api.request.AddressDeleteRequest;
-import com.oms.api.request.AddressQueryRequest;
-import com.oms.api.request.AddressUpdateRequest;
+import com.oms.api.request.*;
 import com.oms.api.response.AddressListVO;
+import com.oms.api.response.GoodsVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +28,7 @@ public interface MicroAppApi {
      */
     @PostMapping(value = "/address/add")
     @ApiOperation("添加地址")
-    ResponseEntity<Boolean> addAddress(AddressAddRequest request);
+    ResponseEntity addAddress(AddressAddRequest request);
 
     /**
      * 编辑地址
@@ -40,7 +38,7 @@ public interface MicroAppApi {
      */
     @PostMapping(value = "/address/update")
     @ApiOperation("编辑地址")
-    ResponseEntity<Boolean> editAddress(AddressUpdateRequest request);
+    ResponseEntity editAddress(AddressUpdateRequest request);
 
     /**
      * 删除地址
@@ -50,7 +48,7 @@ public interface MicroAppApi {
      */
     @PostMapping(value = "/address/delete")
     @ApiOperation("删除地址")
-    ResponseEntity<Boolean> deleteAddress(AddressDeleteRequest request);
+    ResponseEntity deleteAddress(AddressDeleteRequest request);
 
     /**
      * 查询地址列表
@@ -69,7 +67,16 @@ public interface MicroAppApi {
      */
     @PostMapping(value = "/query/goods")
     @ApiOperation("查询商品列表")
-    ResponseEntity queryGoods();
+    ResponseEntity<List<GoodsVO>> queryGoods();
+
+    /**
+     * 查看购物车
+     *
+     * @return
+     */
+    @PostMapping(value = "/query/goods")
+    @ApiOperation("查看购物车")
+    ResponseEntity queryGoodsCar(GoodsCarQueryRequest request);
 
 
 }

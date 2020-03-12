@@ -2,7 +2,7 @@ package com.oms.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.oms.api.response.GoodsVO;
-import com.oms.dao.domain.Goods;
+import com.oms.dao.entity.Goods;
 
 import java.util.List;
 
