@@ -62,5 +62,14 @@ public interface MicroAppApi {
     @ApiOperation("查询地址列表")
     ResponseEntity<List<AddressListVO>> queryAddress(AddressQueryRequest request);
 
+    /**
+     * 查看商品列表
+     *
+     * @return
+     */
+    @PostMapping(value = "/query/goods")
+    @ApiOperation("查询商品列表")
+    ResponseEntity queryGoods();
+
 
 }

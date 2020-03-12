@@ -7,7 +7,9 @@ import com.oms.api.request.AddressDeleteRequest;
 import com.oms.api.request.AddressQueryRequest;
 import com.oms.api.request.AddressUpdateRequest;
 import com.oms.api.response.AddressListVO;
+import com.oms.api.response.GoodsVO;
 import com.oms.service.AddressService;
+import com.oms.service.GoodsService;
 import com.oms.shared.exception.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,8 @@ public class MicroAppController implements MicroAppApi {
 
     @Resource
     private AddressService addressService;
+    @Resource
+    private GoodsService goodsService;
 
     @Override
     public ResponseEntity<Boolean> addAddress(@Validated @RequestBody AddressAddRequest request) {
@@ -46,6 +50,12 @@ public class MicroAppController implements MicroAppApi {
     @Override
     public ResponseEntity<List<AddressListVO>> queryAddress(@Validated @RequestBody AddressQueryRequest request) {
         return new ResponseEntity<>(addressService.queryAddress(request), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity queryGoods() {
+        List<GoodsVO> goodsVOList = goodsService.queryGoods();
+        return new ResponseEntity<>(new ExceptionResponse(200, "success", goodsVOList), HttpStatus.OK);
     }
 
 
