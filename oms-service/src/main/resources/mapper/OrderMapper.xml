@@ -10,25 +10,27 @@
         <result column="order_no" jdbcType="VARCHAR" property="orderNo"/>
         <result column="price" jdbcType="BIGINT" property="price"/>
         <result column="created_time" jdbcType="DATE" property="createdTime"/>
+        <result column="status" jdbcType="int" property="status"/>
         <result column="quantity" jdbcType="DECIMAL" property="quantity"/>
         <result column="open_id" jdbcType="VARCHAR" property="openId"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
     </resultMap>
 
     <select id="queryGoodsCar" resultType="com.oms.api.response.GoodsCarVO">
-        SELECT `o`.`order_no`,
-               `o`.`remark`,
-               `o`.`price`,
-               `o`.`quantity`,
-               `o`.`created_time`,
-               `g`.`goods_name`,
-               `g`.`price`,
-               `g`.`title`,
-               `g`.`picture1`,
-               `g`.`picture2`,
-               `g`.`picture3`
-        FROM `order` `o`
-                 LEFT JOIN `goods` `g` ON `g`.`id` = `o`.`goods_id`
-        WHERE `o`.`open_id` = #{openId};
+            select o.order_no as orderNo,
+               o.remark,
+               o.status as status,
+               o.price      as carPrice,
+               o.quantity,
+               o.creat_time as creatTime,
+               g.goods_name as goodsName,
+               g.price,
+               g.title,
+               g.pictrue3,
+               g.picture2,
+               g.picture1
+            from `order` o
+                left join goods g on g.id = o.goods_id
+                where o.open_id = #{openId};
     </select>
 </mapper>

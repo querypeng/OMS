@@ -26,6 +26,8 @@ public class Order {
 
     private String orderNo;
 
+    private Integer status;
+
     /**
      * 数量
      */

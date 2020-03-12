@@ -18,6 +18,8 @@ public class GoodsCarVO {
 
     private String goodsName;
 
+    private Integer status;
+
     /**
      * 商品价
      */

@@ -1,7 +1,6 @@
 package com.oms.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.baomidou.mybatisplus.extension.toolkit.ChainWrappers;
 import com.oms.api.response.GoodsVO;
 import com.oms.dao.GoodsMapper;
 import com.oms.dao.entity.Goods;
@@ -9,7 +8,6 @@ import com.oms.service.GoodsService;
 import com.oms.shared.beans.WrapperBeanCopier;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**

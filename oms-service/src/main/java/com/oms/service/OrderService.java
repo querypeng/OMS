@@ -1,11 +1,11 @@
 package com.oms.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.oms.api.request.GoodsCarAddRequest;
+import com.oms.api.request.GoodsCarDeleteRequest;
 import com.oms.api.request.GoodsCarQueryRequest;
-import com.oms.api.response.GoodsCarVO;
+import com.oms.api.response.OrderVO;
 import com.oms.dao.entity.Order;
-
-import java.util.List;
 
 /**
  * @author pengfeng
@@ -13,5 +13,9 @@ import java.util.List;
  */
 public interface OrderService extends IService<Order> {
 
-    List<GoodsCarVO> queryGoodsCar(GoodsCarQueryRequest request);
+    OrderVO queryGoodsCar(GoodsCarQueryRequest request);
+
+    void deleteGoodsCar(GoodsCarDeleteRequest request);
+
+    void addGoodsCar(GoodsCarAddRequest request);
 }
