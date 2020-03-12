@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oms.dao.GoodsMapper">
+    <resultMap id="BaseResultMap" type="com.oms.dao.domain.Goods">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="goods_name" jdbcType="VARCHAR" property="goodsName"/>
+        <result column="price" jdbcType="BIGINT" property="price"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="picture1" jdbcType="LONGVARBINARY" property="picture1"/>
+        <result column="picture2" jdbcType="LONGVARBINARY" property="picture2"/>
+        <result column="pictrue3" jdbcType="LONGVARBINARY" property="pictrue3"/>
+    </resultMap>
+</mapper>
