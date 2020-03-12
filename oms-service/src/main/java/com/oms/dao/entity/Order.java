@@ -18,15 +18,13 @@ public class Order {
      */
     private Integer goodsId;
 
+
     /**
      * 价格(元)
      */
     private Long price;
 
-    /**
-     * 订单状态
-     */
-    private Integer status;
+    private String orderNo;
 
     /**
      * 数量

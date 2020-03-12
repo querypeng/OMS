@@ -14,6 +14,8 @@ import java.util.Date;
 @Builder
 public class GoodsCarVO {
 
+    private String orderNo;
+
     private String goodsName;
 
     /**
@@ -38,8 +40,6 @@ public class GoodsCarVO {
     private BigDecimal carPrice;
 
     private BigDecimal quantity;
-
-    private String status;
 
     private Date creatTime;
 

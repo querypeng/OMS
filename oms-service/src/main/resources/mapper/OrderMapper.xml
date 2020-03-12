@@ -7,7 +7,7 @@
         -->
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="goods_id" jdbcType="BIGINT" property="goodsId"/>
-        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="order_no" jdbcType="VARCHAR" property="orderNo"/>
         <result column="price" jdbcType="BIGINT" property="price"/>
         <result column="created_time" jdbcType="DATE" property="createdTime"/>
         <result column="quantity" jdbcType="DECIMAL" property="quantity"/>
@@ -16,7 +16,7 @@
     </resultMap>
 
     <select id="queryGoodsCar" resultType="com.oms.api.response.GoodsCarVO">
-            select o.status,
+            select o.order_no as orderNo,
                o.remark,
                o.price      as carPrice,
                o.quantity,
