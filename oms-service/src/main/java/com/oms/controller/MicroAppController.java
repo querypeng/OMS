@@ -2,7 +2,13 @@ package com.oms.controller;
 
 
 import com.oms.api.MicroAppApi;
-import com.oms.api.request.*;
+import com.oms.api.request.AddressAddRequest;
+import com.oms.api.request.AddressDeleteRequest;
+import com.oms.api.request.AddressQueryRequest;
+import com.oms.api.request.AddressUpdateRequest;
+import com.oms.api.request.GoodsCarAddRequest;
+import com.oms.api.request.GoodsCarDeleteRequest;
+import com.oms.api.request.GoodsCarQueryRequest;
 import com.oms.api.response.AddressListVO;
 import com.oms.api.response.GoodsVO;
 import com.oms.api.response.OrderVO;
@@ -11,7 +17,6 @@ import com.oms.service.AddressService;
 import com.oms.service.GoodsService;
 import com.oms.service.OrderService;
 import com.oms.shared.beans.WrapperBeanCopier;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,20 +70,17 @@ public class MicroAppController implements MicroAppApi {
 
     @Override
     public ResponseEntity<OrderVO> queryGoodsCar(@Validated @RequestBody GoodsCarQueryRequest request) {
-        OrderVO orderVO = orderService.queryGoodsCar(request);
-        return new ResponseEntity<>(orderVO, HttpStatus.OK);
+        return ResponseEntity.ok(orderService.queryGoodsCar(request));
     }
 
     @Override
-    public ResponseEntity deleteGoodsCar(@Validated @RequestBody GoodsCarDeleteRequest request) {
-        orderService.deleteGoodsCar(request);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Boolean> deleteGoodsCar(@Validated @RequestBody GoodsCarDeleteRequest request) {
+        return ResponseEntity.ok(orderService.deleteGoodsCar(request));
     }
 
     @Override
-    public ResponseEntity addGoodsCar(@Validated @RequestBody GoodsCarAddRequest request) {
-        orderService.addGoodsCar(request);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Boolean> addGoodsCar(@Validated @RequestBody GoodsCarAddRequest request) {
+        return ResponseEntity.ok(orderService.addGoodsCar(request));
     }
 
 

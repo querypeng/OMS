@@ -56,8 +56,8 @@ public class SwaggerConfig {
 
 	@Bean
 	public Docket swaggerDocketgoodCar() {
-		Predicate<String> goodCarPredicate = PathSelectors.ant("/micro/goodCar/**");
-		return createSwaggerGroup("购物车相关", goodCarPredicate);
+		Predicate<String> goodsCarPredicate = PathSelectors.ant("/micro/goodsCar/**");
+		return createSwaggerGroup("购物车相关", goodsCarPredicate);
 	}
 
 

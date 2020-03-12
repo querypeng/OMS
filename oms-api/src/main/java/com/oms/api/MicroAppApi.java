@@ -75,7 +75,7 @@ public interface MicroAppApi {
      * @param request
      * @return
      */
-    @PostMapping(value = "/query/goodsCar")
+    @PostMapping(value = "/goodsCar/query")
     @ApiOperation("查看购物车")
     ResponseEntity queryGoodsCar(GoodsCarQueryRequest request);
 
@@ -84,7 +84,7 @@ public interface MicroAppApi {
      *
      * @return
      */
-    @PostMapping(value = "/delete/goodsCar")
+    @PostMapping(value = "/goodsCar/delete")
     @ApiOperation("删除购物车商品")
     ResponseEntity deleteGoodsCar(GoodsCarDeleteRequest request);
 
@@ -93,7 +93,7 @@ public interface MicroAppApi {
      *
      * @return
      */
-    @PostMapping(value = "/add/goodsCar")
+    @PostMapping(value = "/goodsCar/add")
     @ApiOperation("新增购物车商品")
     ResponseEntity addGoodsCar(GoodsCarAddRequest request);
 

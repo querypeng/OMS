@@ -23,14 +23,11 @@ import java.util.List;
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
 
-    @Resource
-    private OrderMapper orderMapper;
-
     @Override
     public OrderVO queryGoodsCar(GoodsCarQueryRequest request) {
 
         OrderVO orderVO = new OrderVO();
-        List<GoodsCarVO> goodsCarVOList = orderMapper.queryGoodsCar(request.getOpenId());
+        List<GoodsCarVO> goodsCarVOList = this.baseMapper.queryGoodsCar(request.getOpenId());
         goodsCarVOList.forEach(e -> {
             e.setCarPrice(e.getCarPrice().divide(new BigDecimal(100), 2, RoundingMode.HALF_UP));
             e.setPrice(e.getPrice().divide(new BigDecimal(100), 2, RoundingMode.HALF_UP));
@@ -42,13 +39,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public void deleteGoodsCar(GoodsCarDeleteRequest request) {
-        orderMapper.deleteBatchIds(request.getOrderIds());
+    public Boolean deleteGoodsCar(GoodsCarDeleteRequest request) {
+        return this.removeByIds(request.getOrderIds());
     }
 
     @Override
-    public void addGoodsCar(GoodsCarAddRequest request) {
-
-
+    public Boolean addGoodsCar(GoodsCarAddRequest request) {
+        return this.saveBatch(null);
     }
 }

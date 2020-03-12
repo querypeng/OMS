@@ -15,7 +15,7 @@ public interface OrderService extends IService<Order> {
 
     OrderVO queryGoodsCar(GoodsCarQueryRequest request);
 
-    void deleteGoodsCar(GoodsCarDeleteRequest request);
+    Boolean deleteGoodsCar(GoodsCarDeleteRequest request);
 
-    void addGoodsCar(GoodsCarAddRequest request);
+    Boolean addGoodsCar(GoodsCarAddRequest request);
 }
