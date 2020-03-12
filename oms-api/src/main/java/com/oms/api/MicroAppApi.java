@@ -5,11 +5,14 @@ import com.oms.api.request.AddressAddRequest;
 import com.oms.api.request.AddressDeleteRequest;
 import com.oms.api.request.AddressQueryRequest;
 import com.oms.api.request.AddressUpdateRequest;
+import com.oms.api.response.AddressListVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 
 /**
@@ -25,9 +28,9 @@ public interface MicroAppApi {
      * @param request
      * @return
      */
-    @PostMapping(value = "/add/address")
+    @PostMapping(value = "/address/add")
     @ApiOperation("添加地址")
-    ResponseEntity addAddress(AddressAddRequest request);
+    ResponseEntity<Boolean> addAddress(AddressAddRequest request);
 
     /**
      * 编辑地址
@@ -35,9 +38,9 @@ public interface MicroAppApi {
      * @param request
      * @return
      */
-    @PostMapping(value = "/update/address")
+    @PostMapping(value = "/address/update")
     @ApiOperation("编辑地址")
-    ResponseEntity editAddress(AddressUpdateRequest request);
+    ResponseEntity<Boolean> editAddress(AddressUpdateRequest request);
 
     /**
      * 删除地址
@@ -45,9 +48,9 @@ public interface MicroAppApi {
      * @param request
      * @return
      */
-    @PostMapping(value = "/delete/address")
+    @PostMapping(value = "/address/delete")
     @ApiOperation("删除地址")
-    ResponseEntity deleteAddress(AddressDeleteRequest request);
+    ResponseEntity<Boolean> deleteAddress(AddressDeleteRequest request);
 
     /**
      * 查询地址列表
@@ -55,9 +58,9 @@ public interface MicroAppApi {
      * @param request
      * @return
      */
-    @PostMapping(value = "/query/address")
+    @PostMapping(value = "/address/query")
     @ApiOperation("查询地址列表")
-    ResponseEntity queryAddress(AddressQueryRequest request);
+    ResponseEntity<List<AddressListVO>> queryAddress(AddressQueryRequest request);
 
 
 }

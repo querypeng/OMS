@@ -3,6 +3,7 @@ package com.oms.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.toolkit.ChainWrappers;
 import com.oms.api.request.AddressAddRequest;
 import com.oms.api.request.AddressDeleteRequest;
 import com.oms.api.request.AddressQueryRequest;
@@ -30,31 +31,27 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
     private AddressMapper addressMapper;
 
     @Override
-    public void addAddress(AddressAddRequest request) {
+    public Boolean addAddress(AddressAddRequest request) {
         Address address = WrapperBeanCopier.convert(request, Address.class);
-        addressMapper.insert(address);
+        return 1 == addressMapper.insert(address);
     }
 
     @Override
-    public void editAddress(AddressUpdateRequest request) {
+    public Boolean editAddress(AddressUpdateRequest request) {
         Address address = WrapperBeanCopier.convert(request, Address.class);
-        addressMapper.updateById(address);
+        return 1 == addressMapper.updateById(address);
     }
 
     @Override
-    public void deleteAddress(AddressDeleteRequest request) {
-        addressMapper.deleteById(request.getId());
+    public Boolean deleteAddress(AddressDeleteRequest request) {
+        return 1 == addressMapper.deleteById(request.getId());
     }
 
     @Override
     public List<AddressListVO> queryAddress(AddressQueryRequest request) {
-        QueryWrapper<Address> wrapper = new QueryWrapper<>();
-        Address address = new Address();
-        address.setOpenId(request.getOpenId());
-        List<Address> addresses = addressMapper.selectList(wrapper);
-        if (CollectionUtils.isEmpty(addresses)) {
-            new ArrayList<>();
-        }
-        return JSON.parseArray(JSON.toJSONString(addresses), AddressListVO.class);
+
+        List<Address> list = ChainWrappers.lambdaQueryChain(addressMapper).eq(Address::getOpenId, request.getOpenId()).list();
+
+        return WrapperBeanCopier.convert(list, AddressListVO.class);
     }
 }

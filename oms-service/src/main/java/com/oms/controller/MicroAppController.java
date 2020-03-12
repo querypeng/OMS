@@ -29,27 +29,23 @@ public class MicroAppController implements MicroAppApi {
     private AddressService addressService;
 
     @Override
-    public ResponseEntity addAddress(@Validated @RequestBody AddressAddRequest request) {
-        addressService.addAddress(request);
-        return new ResponseEntity<>(new ExceptionResponse(200, "success"), HttpStatus.OK);
+    public ResponseEntity<Boolean> addAddress(@Validated @RequestBody AddressAddRequest request) {
+        return new ResponseEntity<>(addressService.addAddress(request), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity editAddress(@Validated @RequestBody AddressUpdateRequest request) {
-        addressService.editAddress(request);
-        return new ResponseEntity<>(new ExceptionResponse(200, "success"), HttpStatus.OK);
+    public ResponseEntity<Boolean> editAddress(@Validated @RequestBody AddressUpdateRequest request) {
+        return new ResponseEntity<>(addressService.editAddress(request), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity deleteAddress(@Validated @RequestBody AddressDeleteRequest request) {
-        addressService.deleteAddress(request);
-        return new ResponseEntity<>(new ExceptionResponse(200, "success"), HttpStatus.OK);
+    public ResponseEntity<Boolean> deleteAddress(@Validated @RequestBody AddressDeleteRequest request) {
+        return new ResponseEntity<>(addressService.deleteAddress(request), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity queryAddress(@Validated @RequestBody AddressQueryRequest request) {
-        List<AddressListVO> addressList = addressService.queryAddress(request);
-        return new ResponseEntity<>(new ExceptionResponse(200, "success", addressList), HttpStatus.OK);
+    public ResponseEntity<List<AddressListVO>> queryAddress(@Validated @RequestBody AddressQueryRequest request) {
+        return new ResponseEntity<>(addressService.queryAddress(request), HttpStatus.OK);
     }
 
 
