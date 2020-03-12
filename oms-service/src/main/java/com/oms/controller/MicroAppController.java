@@ -24,6 +24,6 @@ public class MicroAppController implements MicroAppApi {
     @Override
     public ResponseEntity<Void> addAddress(@Validated @RequestBody AddAddressRequest request) {
         addressService.addAddress(request);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

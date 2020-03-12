@@ -27,6 +27,5 @@ public class AddressServiceImpl implements AddressService {
         address.setName(request.getName());
         address.setOpenId(request.getOpenId());
         addressMapper.insert(address);
-        throw new BusinessException(1, "错误");
     }
 }
