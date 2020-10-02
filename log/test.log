@@ -1,0 +1,10 @@
+2020-10-02 22:14:12.053 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 92 initialize - Tomcat initialized with port(s): 8080 (http)
+2020-10-02 22:14:12.065 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-02 22:14:12.066 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting service [Tomcat]
+2020-10-02 22:14:12.066 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-10-02 22:14:12.125 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Initializing Spring embedded WebApplicationContext
+2020-10-02 22:14:12.125 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 284 prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1189 ms
+2020-10-02 22:14:12.976 INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport 181 initialize - Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-02 22:14:13.334 INFO  org.apache.juli.logging.DirectJDKLog 173 log - Starting ProtocolHandler ["http-nio-8080"]
+2020-10-02 22:14:13.364 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer 204 start - Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-02 22:14:18.365 INFO  org.springframework.scheduling.concurrent.ExecutorConfigurationSupport 218 shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
