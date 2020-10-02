@@ -10,7 +10,7 @@
         <result column="order_no" jdbcType="VARCHAR" property="orderNo"/>
         <result column="price" jdbcType="BIGINT" property="price"/>
         <result column="created_time" jdbcType="DATE" property="createdTime"/>
-        <result column="status" jdbcType="int" property="status"/>
+        <result column="status" jdbcType="BIGINT" property="status"/>
         <result column="quantity" jdbcType="DECIMAL" property="quantity"/>
         <result column="open_id" jdbcType="VARCHAR" property="openId"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>

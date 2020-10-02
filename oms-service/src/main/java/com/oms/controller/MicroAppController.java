@@ -2,13 +2,7 @@ package com.oms.controller;
 
 
 import com.oms.api.MicroAppApi;
-import com.oms.api.request.AddressAddRequest;
-import com.oms.api.request.AddressDeleteRequest;
-import com.oms.api.request.AddressQueryRequest;
-import com.oms.api.request.AddressUpdateRequest;
-import com.oms.api.request.GoodsCarAddRequest;
-import com.oms.api.request.GoodsCarDeleteRequest;
-import com.oms.api.request.GoodsCarQueryRequest;
+import com.oms.api.request.*;
 import com.oms.api.response.AddressListVO;
 import com.oms.api.response.GoodsVO;
 import com.oms.api.response.OrderVO;
