@@ -32,15 +32,15 @@ public class GoodsVO {
     /**
      * 图1
      */
-    private byte[] picture1;
+    private String picture1;
 
     /**
      * 图2
      */
-    private byte[] picture2;
+    private String picture2;
 
     /**
      * 图3
      */
-    private byte[] pictrue3;
+    private String picture3;
 }

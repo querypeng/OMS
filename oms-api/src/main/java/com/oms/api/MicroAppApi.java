@@ -3,7 +3,6 @@ package com.oms.api;
 
 import com.oms.api.request.*;
 import com.oms.api.response.AddressListVO;
-import com.oms.api.response.GoodsCarVO;
 import com.oms.api.response.GoodsVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

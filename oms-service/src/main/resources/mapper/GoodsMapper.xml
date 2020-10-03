@@ -9,8 +9,8 @@
         <result column="goods_name" jdbcType="VARCHAR" property="goodsName"/>
         <result column="price" jdbcType="BIGINT" property="price"/>
         <result column="title" jdbcType="VARCHAR" property="title"/>
-        <result column="picture1" jdbcType="LONGVARBINARY" property="picture1"/>
-        <result column="picture2" jdbcType="LONGVARBINARY" property="picture2"/>
-        <result column="picture3" jdbcType="LONGVARBINARY" property="picture3"/>
+        <result column="picture1" jdbcType="VARCHAR" property="picture1"/>
+        <result column="picture2" jdbcType="VARCHAR" property="picture2"/>
+        <result column="picture3" jdbcType="VARCHAR" property="picture3"/>
     </resultMap>
 </mapper>
