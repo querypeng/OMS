@@ -7,13 +7,17 @@ import com.oms.api.response.AddressListVO;
 import com.oms.api.response.GoodsVO;
 import com.oms.api.response.OrderVO;
 import com.oms.dao.entity.Address;
+import com.oms.dao.entity.Goods;
 import com.oms.service.AddressService;
 import com.oms.service.GoodsService;
 import com.oms.service.OrderService;
 import com.oms.shared.beans.WrapperBeanCopier;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -24,7 +28,7 @@ import java.util.List;
  * @author pengfeng
  */
 @RestController
-public class MicroAppController implements MicroAppApi {
+public class MicroAppController implements MicroAppApi  {
 
     @Resource
     private AddressService addressService;
@@ -34,6 +38,8 @@ public class MicroAppController implements MicroAppApi {
 
     @Resource
     private OrderService orderService;
+
+
 
     @Override
     public ResponseEntity<Boolean> addAddress(@Validated @RequestBody AddressAddRequest request) {
@@ -57,7 +63,7 @@ public class MicroAppController implements MicroAppApi {
         return ResponseEntity.ok(addressService.queryAddress(request));
     }
 
-    @Override
+       @Override
     public ResponseEntity<List<GoodsVO>> queryGoods() {
         return ResponseEntity.ok(goodsService.queryGoods());
     }
@@ -77,5 +83,22 @@ public class MicroAppController implements MicroAppApi {
         return ResponseEntity.ok(orderService.addGoodsCar(request));
     }
 
+    @Override
+    public ResponseEntity<Boolean> addCommodity(@Validated @RequestBody AddCommodityRequest request) {
+        Boolean result = goodsService.addGoods(request);
+        return ResponseEntity.ok(result);
+    }
+
+    @Override
+    public ResponseEntity  updateCommodity(@Validated @RequestBody UpdateShoppingRequest request) {
+        Boolean result = goodsService.updateCommodity(request);
+        return ResponseEntity.ok(result);
+    }
+
+    @Override
+    public ResponseEntity deleteCommodity(@Validated @RequestBody DeleteCommodityRequest request) {
+        Boolean result = goodsService.deleteCommodity(request.getId());
+        return ResponseEntity.ok(result);
+    }
 
 }

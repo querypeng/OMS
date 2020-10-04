@@ -1,6 +1,9 @@
 package com.oms.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.oms.api.request.AddCommodityRequest;
+import com.oms.api.request.DeleteCommodityRequest;
+import com.oms.api.request.UpdateShoppingRequest;
 import com.oms.api.response.GoodsVO;
 import com.oms.dao.entity.Goods;
 
@@ -14,5 +17,10 @@ public interface GoodsService extends IService<Goods> {
 
     List<GoodsVO> queryGoods();
 
+    Boolean addGoods(AddCommodityRequest request);
 
+
+    Boolean updateCommodity(UpdateShoppingRequest request);
+
+    Boolean deleteCommodity(Long request);
 }

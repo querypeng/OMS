@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Api(tags = "MicroAppApi")
 @RequestMapping(value = "/micro")
-public interface MicroAppApi {
+public interface  MicroAppApi {
 
     /**
      * 添加地址
@@ -96,5 +96,21 @@ public interface MicroAppApi {
     @ApiOperation("新增购物车商品")
     ResponseEntity addGoodsCar(GoodsCarAddRequest request);
 
+    /**
+     * 新增商品
+     * @param request
+     * @return
+     */
+    @PostMapping(value = "goods/add")
+    @ApiOperation("添加商品")
+    ResponseEntity addCommodity(AddCommodityRequest request);
 
+
+    @PostMapping(value = "goods/update")
+    @ApiOperation("修改商品")
+    ResponseEntity updateCommodity(UpdateShoppingRequest request);
+
+    @PostMapping(value = "goods/delete")
+    @ApiOperation("删除商品")
+    ResponseEntity deleteCommodity(DeleteCommodityRequest request);
 }

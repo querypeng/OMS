@@ -1,41 +1,21 @@
-package com.oms.dao.entity;
+package com.oms.api.request;
 
+public class UpdateShoppingRequest {
 
-public class Goods {
-    /**
-     * 主键Id
-     */
     private Long id;
 
-    /**
-     * 商品名称
-     */
     private String goodsName;
 
-    /**
-     * 价格(元)
-     */
     private Long price;
 
-    /**
-     * 副标题
-     */
     private String title;
 
-    /**
-     * 图1
-     */
     private String picture1;
 
-    /**
-     * 图2
-     */
     private String picture2;
 
-    /**
-     * 图3
-     */
     private String picture3;
+
 
     public Long getId() {
         return id;

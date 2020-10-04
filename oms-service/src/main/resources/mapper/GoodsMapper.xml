@@ -13,4 +13,43 @@
         <result column="picture2" jdbcType="VARCHAR" property="picture2"/>
         <result column="picture3" jdbcType="VARCHAR" property="picture3"/>
     </resultMap>
+
+    <insert id="insertGoods" useGeneratedKeys="true" keyProperty="id">
+        insert into goods(
+        goods_name,
+        price,
+        title,
+        picture1,
+        picture2,
+        picture3
+        ) values (
+          #{goods.goodsName},
+          #{goods.price},
+          #{goods.title},#{goods.picture1},#{goods.picture2},#{goods.picture3}
+        )
+    </insert>
+    <update id="updateCommodity" parameterType="com.oms.dao.entity.Goods">
+    update goods set
+        <if test="goods.price != null and goods.price != 0">
+            price=#{goods.price},
+        </if>
+        <if test="goods.title != null">
+            title=#{goods.title},
+        </if>
+        <if test="goods.picture1 != null">
+            picture1=#{goods.picture1},
+        </if>
+        <if test="goods.picture2 != null">
+            picture2=#{goods.picture2},
+        </if>
+        <if test="goods.picture3 != null">
+            picture3=#{goods.picture3},
+        </if>
+        goods_name=#{goods.goodsName}
+   WHERE id=#{goods.id}
+    </update>
+
+    <delete id="deleteCommodity">
+        delete from goods where id = #{id}
+    </delete>
 </mapper>
