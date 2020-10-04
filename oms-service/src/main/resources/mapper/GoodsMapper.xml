@@ -52,4 +52,6 @@
     <delete id="deleteCommodity">
         delete from goods where id = #{id}
     </delete>
+
+
 </mapper>
