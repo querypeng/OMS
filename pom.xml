@@ -23,7 +23,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>2.10.0</swagger.version>
         <swagger.annotations.version>1.5.22</swagger.annotations.version>
         <swagger.models.version>1.5.22</swagger.models.version>
         <fastjson.version>1.2.51</fastjson.version>
